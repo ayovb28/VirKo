@@ -28,7 +28,7 @@ Sistema servidor per a la recepció, emmagatzematge i visualització de dades en
 
 ---
 
-## 🏗️ Arquitectura del sistema
+## Arquitectura del sistema
 
 ```
 Placa VirKo (sensor físic)
@@ -61,7 +61,7 @@ Placa VirKo (sensor físic)
 
 ---
 
-## ⚙️ Requisits previs
+## Requisits previs
 
 - **Sistema operatiu:** Linux (Debian 13 / Ubuntu 22.04 o superior) o Windows amb WSL2
 - **Docker Engine** i **Docker Compose** instal·lats
@@ -71,7 +71,7 @@ Placa VirKo (sensor físic)
 
 ---
 
-## 🚀 Instal·lació
+## Instal·lació
 
 ### 1. Instal·lar Docker (Debian/Ubuntu)
 
@@ -144,15 +144,15 @@ http://localhost
 
 | Usuari | Contrasenya | Rol |
 |--------|-------------|-----|
-| `admin` | `admin` | Administrador |
-| `professor` | `professor` | Professor (R/W) |
+| `admin` | `***` | Administrador |
+| `professor` | `***` | Professor (R/W) |
 | `alumne` | `alumne` | Alumne (R) |
 
 > ⚠️ **Canvia les contrasenyes** després del primer accés des de la pàgina d'administració.
 
 ---
 
-## 🌐 Desplegament en VPS (Azure / DigitalOcean / Hetzner)
+## Desplegament en VPS (Azure / DigitalOcean / Hetzner)
 
 Si vols que el sistema sigui accessible des de qualsevol lloc:
 
@@ -178,7 +178,7 @@ http://IP_PUBLICA_DEL_VPS
 
 ---
 
-## 📡 Connexió de les VirKos
+## Connexió de les VirKos
 
 Cada VirKo ha de publicar les dades via MQTT al broker públic `broker.emqx.io` amb el format:
 
@@ -224,7 +224,7 @@ El sistema usa la mateixa lògica que el firmware de la VirKo física:
 
 ---
 
-## 🗄️ Estructura de la base de dades
+## Estructura de la base de dades
 
 ### Taula `dades` — Registres dels sensors
 ```sql
@@ -266,7 +266,7 @@ CREATE TABLE usuaris (
 
 ---
 
-## 📄 Pàgines del sistema
+## Pàgines del sistema
 
 | Pàgina | URL | Descripció | Rols |
 |--------|-----|------------|------|
@@ -291,7 +291,7 @@ http://IP/visor_full.php?mac=CC50E3A8FA8C
 
 ---
 
-## 🔧 Gestió del sistema
+## Gestió del sistema
 
 ### Veure l'estat dels contenidors
 ```bash
@@ -325,7 +325,7 @@ docker exec -i virko-server-db-1 mysql -u root -proot virko < backup_virko.sql
 
 ---
 
-## 🗂️ Estructura del repositori
+## Estructura del repositori
 
 ```
 VirKo/
@@ -354,7 +354,7 @@ VirKo/
 
 ---
 
-## 🔗 Serveis accessibles
+## Serveis accessibles
 
 | Servei | URL |
 |--------|-----|
@@ -365,9 +365,9 @@ VirKo/
 
 ---
 
-## 📋 Llicència
+## Llicència
 
-Projecte desenvolupat per **Ayoub** — Institut l'Alzina / Jesuïtes Clot  
+Projecte desenvolupat per **Ayoub Hamdi Touhami** — Institut l'Alzina / Jesuïtes Clot  
 Curs 2025-2026 — Projecte de sistemes i back-end IoT
 
 ---
