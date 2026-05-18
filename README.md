@@ -4,29 +4,6 @@
 
 Sistema servidor per a la recepció, emmagatzematge i visualització de dades en temps real de dispositius IoT **VirKo** (sensors de qualitat de l'aire). Inclou servidor web PHP, base de dades MySQL, broker MQTT, Node-RED i visor ONLYOFFICE, tot empaquetат amb Docker.
 
----
-
-## 📸 Captures de pantalla
-
-### Inici de sessió
-![Login](docs/screenshots/login.png)
-
-### Gestió de VirKos
-![Gestió](docs/screenshots/gestio.png)
-
-### Dashboard en temps real
-![Dades](docs/screenshots/dades.png)
-
-### Registres de sensors
-![Registres](docs/screenshots/registres.png)
-
-### Gestió d'usuaris
-![Admin](docs/screenshots/admin.png)
-
-### Flux Node-RED
-![Node-RED](docs/screenshots/nodered.png)
-
----
 
 ## Arquitectura del sistema
 
