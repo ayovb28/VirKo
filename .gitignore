@@ -1,0 +1,33 @@
+# Node-RED - carpetes generades automàticament
+nodered_data/node_modules/
+nodered_data/.npm/
+nodered_data/.config.nodes.json
+nodered_data/.config.nodes.json.backup
+nodered_data/.config.runtime.json
+nodered_data/.config.runtime.json.backup
+nodered_data/.config.users.json
+nodered_data/.config.users.json.backup
+nodered_data/.flows.json.backup
+nodered_data/.flows_cred.json.backup
+nodered_data/.npm/
+
+# MySQL - dades de la base de dades
+mysql-data/
+
+# Fitxers temporals
+*.log
+*.tmp
+*.bak
+
+# Fulls CSV generats
+web/fulls/*.csv
+web/fulls/*.xls
+web/fulls/*.xlsx
+
+# Sistema operatiu
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Git embegut (screenshots)
+docs/screenshots/.git/

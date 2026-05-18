@@ -1,0 +1,60 @@
+version: '3'
+services:
+
+  # Contenidor web: PHP + Apache per servir les pàgines
+  web:
+    build: .
+    ports:
+      - "8080:80"
+    volumes:
+      - ./web:/var/www/html
+    depends_on:
+      - db
+
+  # Contenidor de base de dades: MySQL 5.7
+  db:
+    image: mysql:5.7
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: virko
+    ports:
+      - "3306:3306"
+    volumes:
+      # Persistència de dades: no es perden quan es reinicia Docker
+      - virko_db:/var/lib/mysql
+      # Script d'inicialització: s'executa la primera vegada automàticament
+      - ./mysql-init:/docker-entrypoint-initdb.d
+
+  # Contenidor ONLYOFFICE: visor de fulls de càlcul
+  onlyoffice:
+    image: onlyoffice/documentserver
+    ports:
+      - "8081:80"
+    environment:
+      - JWT_ENABLED=false
+      - ALLOW_PRIVATE_LOCAL_IPS_IN_REQUESTS=true  # <--- AQUESTA LÍNIA ÉS OBLIGATÒRIA
+  
+  # Contenidor Node-RED: gestió del flux de dades MQTT → MySQL
+  nodered:
+    image: nodered/node-red:latest
+    ports:
+      - "1880:1880"
+    volumes:
+      - ./nodered_data:/data
+    depends_on:
+      - db
+
+  # Contenidor Mosquitto: broker MQTT per rebre dades de les Virkos
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    ports:
+      - "1883:1883"
+      - "9001:9001"
+    volumes:
+      - ./mosquitto/config:/mosquitto/config
+      - ./mosquitto/data:/mosquitto/data
+      - ./mosquitto/log:/mosquitto/log
+
+# Volum persistent per a la base de dades MySQL
+volumes:
+  virko_db:
