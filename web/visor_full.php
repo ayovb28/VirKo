@@ -8,6 +8,12 @@
 session_start();
 // Desactivem els avisos de deprecació per no trencar el HTML
 error_reporting(E_ERROR);
+// Accés directe amb token (per a l'app Qt)
+if (isset($_GET['token']) && $_GET['token'] === 'virko2526') {
+    $_SESSION['usuari'] = 'qt_app';
+    $_SESSION['rol'] = isset($_GET['mode']) && $_GET['mode'] === 'lectura' ? 'R' : 'RW';
+    $_SESSION['nom_complet'] = 'App Qt';
+}
 if (!isset($_SESSION['usuari'])) { header("Location: login.php"); exit; }
 
 // Connectem a la base de dades MySQL
