@@ -27,6 +27,8 @@ services:
     environment:
       - JWT_ENABLED=false
       - ALLOW_PRIVATE_LOCAL_IPS_IN_REQUESTS=true
+    entrypoint: >
+      /bin/sh -c "sed -i 's/\"allowPrivateIPAddress\": false/\"allowPrivateIPAddress\": true/g' /etc/onlyoffice/documentserver/default.json && sed -i 's/\"allowMetaIPAddress\": false/\"allowMetaIPAddress\": true/g' /etc/onlyoffice/documentserver/default.json && /app/ds/run-document-server.sh"
 
   nodered:
     image: nodered/node-red:latest
